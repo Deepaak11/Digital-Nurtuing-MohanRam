@@ -1,0 +1,3 @@
+org\example\repository\BookRepository.class
+org\example\service\BookService.class
+org\example\MainApp.class
