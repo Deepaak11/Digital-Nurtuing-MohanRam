@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Skills -->
+    <bean id="skillJava" class="com.example.employee_app.model.Skill">
+        <constructor-arg value="1"/>
+        <constructor-arg value="Java"/>
+    </bean>
+
+    <bean id="skillAngular" class="com.example.employee_app.model.Skill">
+        <constructor-arg value="2"/>
+        <constructor-arg value="Angular"/>
+    </bean>
+
+    <!-- Departments -->
+    <bean id="deptIT" class="com.example.employee_app.model.Department">
+        <constructor-arg value="1"/>
+        <constructor-arg value="IT"/>
+    </bean>
+
+    <bean id="deptHR" class="com.example.employee_app.model.Department">
+        <constructor-arg value="2"/>
+        <constructor-arg value="HR"/>
+    </bean>
+
+    <!-- Employees -->
+    <bean id="employee1" class="com.example.employee_app.model.Employee">
+        <property name="id" value="101"/>
+        <property name="name" value="kavi"/>
+        <property name="salary" value="70000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="deptIT"/>
+        <property name="skillList">
+            <list>
+                <ref bean="skillJava"/>
+                <ref bean="skillAngular"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee2" class="com.example.employee_app.model.Employee">
+        <property name="id" value="102"/>
+        <property name="name" value="priya"/>
+        <property name="salary" value="65000"/>
+        <property name="permanent" value="false"/>
+        <property name="department" ref="deptHR"/>
+        <property name="skillList">
+            <list>
+                <ref bean="skillJava"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee3" class="com.example.employee_app.model.Employee">
+        <property name="id" value="103"/>
+        <property name="name" value="mohan"/>
+        <property name="salary" value="72000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="deptIT"/>
+        <property name="skillList">
+            <list>
+                <ref bean="skillAngular"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="employee4" class="com.example.employee_app.model.Employee">
+        <property name="id" value="104"/>
+        <property name="name" value="deepak"/>
+        <property name="salary" value="80000"/>
+        <property name="permanent" value="true"/>
+        <property name="department" ref="deptHR"/>
+        <property name="skillList">
+            <list>
+                <ref bean="skillJava"/>
+                <ref bean="skillAngular"/>
+            </list>
+        </property>
+    </bean>
+
+    <!-- List of all employees -->
+    <bean id="employeeList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="employee1"/>
+                <ref bean="employee2"/>
+                <ref bean="employee3"/>
+                <ref bean="employee4"/>
+            </list>
+        </constructor-arg>
+    </bean>
+</beans>
