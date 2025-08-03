@@ -1,0 +1,18 @@
+import React, { useContext } from 'react';
+import ThemeContext from '../ThemeContext';
+
+const EmployeeCard = ({ employee }) => {
+    const theme = useContext(ThemeContext);
+
+    return (
+        <div className={`card ${theme}`}>
+            <h3>{employee.name}</h3>
+            <p>Position: {employee.position}</p>
+            <button className={`btn ${theme}`}>View Profile</button>
+        </div>
+    );
+};
+
+export default EmployeeCard;
+
+
